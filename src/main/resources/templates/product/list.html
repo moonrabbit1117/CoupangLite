@@ -1,0 +1,25 @@
+<!DOCTYPE html> <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 목록</title>
+</head>
+<body>
+
+<h1>상품 목록</h1>
+<table border="1" cellpadding="10">
+    <thead>
+    <tr> <th>상품명</th>
+        <th>색상</th>
+        <th>가격</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${products}">
+        <td th:text="${p.product_name}"></td>
+        <td th:text="${p.product_color}"></td>
+        <td th:text="${p.product_price} + '원'"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
