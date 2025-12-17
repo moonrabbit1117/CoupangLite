@@ -38,6 +38,9 @@ dependencies {
 
     //Maria DB 연결 필요(초기 설정)
     runtimeOnly("org.mariadb.jdbc:mariadb-java-client:3.3.3")
+
+    //Spring Security 없어서 추가해줌(20251216) - SecurityConfig 에서 필요함!
+    implementation ("org.springframework.boot:spring-boot-starter-security")
 }
 
 tasks.withType<Test> {
