@@ -52,4 +52,18 @@ public class AuthController {
         httpSession.invalidate();
         return "redirect:/";
     }
+
+    //로그인 했는지 확인하는 기능
+    @GetMapping("/login-check")
+    public String loginCheck(HttpSession httpSession, Model model){
+
+        Object loginUserId = httpSession.getAttribute("LOGIN_USER_IND");
+
+        if(loginUserId != null){
+            model.addAttribute("message", "로그인 상태입니다! (" + loginUserId + ")");
+        } else {
+            model.addAttribute("message", "로그인이 필요합니다!");
+        }
+        return "auth/login-check"; // login-check.html로 이동!
+    }
 }
